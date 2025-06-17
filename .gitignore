@@ -1,0 +1,24 @@
+# Maven build output
+/target/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA (falls du mal wechselst)
+.idea/
+*.iml
+
+# macOS/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node/npm (falls JS im Projekt)
+node_modules/
+
+# VS Code (optional)
+.vscode/
