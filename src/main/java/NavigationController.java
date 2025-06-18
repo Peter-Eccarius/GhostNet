@@ -16,4 +16,7 @@ public class NavigationController implements Serializable
     public String zurueck(){
         return "index";
     }
+    public String editPerson() {
+    	return "editPerson";
+    }
 }
