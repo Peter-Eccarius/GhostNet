@@ -4,14 +4,29 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-  <title>Menü</title>
-  <h:outputStylesheet library="css" name="style.css" />
+  <title>Meldungs-Menü</title>
 
 </h:head>
 <h:body>
-	<h1>Willkommen im kleinen Menü</h1>
+	<h1>Willkommen im Meldungsmenü</h1>
 	<h:form>
-		kleines Menü
+		<p:card style="width: 80em">
+			<f:facet name="title">Sie haben sich als "Melder:in" eingeloggt und Ihnen stehen folgende Funktionen zur Verfügung:</f:facet>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="neues Geisternetz erfassen" />
+				<p:commandButton value="Netz erfassen" action="#{navigation.newNet}" ajax="false"/>
+				
+				<p:outputLabel value="Netz als verschollen melden" />
+				<p:commandButton value="als Verschollen melden" action="#{navigation.lost}" ajax="false"/>
+				
+				<p:outputLabel value="zurück zum Login" />
+				<p:commandButton value="zum Login" action="#{navigation.login}" ajax="false"/>
+			</p:panelGrid>
+			
+			<p:messages id="messages">
+				<p:autoUpdate/>
+			</p:messages>
+		</p:card>
 	</h:form>
 </h:body>
 </html>

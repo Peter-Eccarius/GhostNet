@@ -12,20 +12,28 @@ import jakarta.faces.validator.ValidatorException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
-@Named
+@Named("login")
 @ViewScoped
 public class LoginController implements Serializable {
 
 	String name;
 	String telnr;
 
-	public String login() {
+	public String loginMelder() {
+		User user = new User(name, telnr);
+		if (user.fullLogin())
+			return "menu";
+		else if (user.anonymLogin())
+			return "newNet";
+		else
+			return "fehler";		
+	}
+	
+	public String loginBerger() {
 		User user = new User(name, telnr);
 		if (user.fullLogin())
 			return "fullMenu";
-		else if (user.anonymLogin())
-			return "menu";
-		else
+		else 
 			return "fehler";		
 	}
 

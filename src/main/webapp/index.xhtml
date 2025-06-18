@@ -9,26 +9,18 @@
 </h:head>
 <h:body>
 	<h1>Willkommen</h1>
+	<p:outputLabel value="Wählen Sie aus, mit welcher Rolle Sie sich anmelden möchten" />
+	
 	<h:form>
-		<p:card style="width: 30em">
-			<f:facet name="title">Login</f:facet>
-			<p:panelGrid columns="2">
-				<p:outputLabel value="Benutzername: " for="name" />
-				<p:inputText id="name" value="#{loginController.name}" size="25" required="true">
-				</p:inputText>
-				<p:outputLabel value="Telefonnummer: " for="telnr" required="false"/>
-				<p:inputText id="telnr" value="#{loginController.telnr}" size="25" required="false">
-				</p:inputText>
-			</p:panelGrid>
-			<f:facet name="footer">
-				<p:commandButton value="login" action="#{loginController.login}" ajax="false"/>
-				
-				<p:messages id="messages">
-					<p:autoUpdate/>
-				</p:messages>
-				
-			</f:facet>
-		</p:card>
+		<p:spacer height="50em" />
+		<p:commandButton value="Melder:in" action="#{navigation.loginMelder()}" ajax="false" />
+		<p:spacer width="20em" />
+		<p:commandButton value="Berger:in" action="#{navigation.loginBerger()}" ajax="false" />
+		
+			
+		<p:messages id="messages">
+			<p:autoUpdate/>
+		</p:messages>
 	</h:form>
 </h:body>
 </html>
