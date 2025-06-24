@@ -8,7 +8,32 @@
 </h:head>
 
 <h:body>
-	<h1>Willkommen im großen Menü</h1>
+	<h1>Willkommen im große Menü</h1>
+	<h:form>
+		<p:card style="width: 80em">
+			<f:facet name="title">Sie haben sich als "Berger:in" eingeloggt und Ihnen stehen folgende Funktionen zur Verfügung:</f:facet>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Ich möchte mich für die Bergung eines Netzes eintragen" />
+				<p:commandButton value="Los!" action="#{navigation.lost}" ajax="false"/>
+				
+				<p:outputLabel value="Ich möchte zu bergende Netze einsehen" />
+				<p:commandButton value="Los!" action="#{action.}" ajax="false"/>
+				
+				<p:outputLabel value="Ich möchte eine erfolgte Bergung melden" />
+				<p:commandButton value="Los!" action="#{navigation.lost}" ajax="false"/>
+				
+				<p:outputLabel value="Ich möchte ein Netz als verschollen melden" />
+				<p:commandButton value="Los!" action="#{navigation.lost}" ajax="false"/>
+				
+				<p:outputLabel value="zurück zum Login" />
+				<p:commandButton value="zum Login" action="#{navigation.login}" ajax="false"/>
+			</p:panelGrid>
+			
+			<p:messages id="messages">
+				<p:autoUpdate/>
+			</p:messages>
+		</p:card>
+	</h:form>
 </h:body>
 
 </html>

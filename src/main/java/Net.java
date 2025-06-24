@@ -1,28 +1,24 @@
 import jakarta.persistence.*;
-import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
-import jakarta.inject.Named;
 
-@Named
-@ApplicationScoped
+
 @Entity
 public class Net implements Serializable
-{
+{	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
 	private String size;
     private String state;
     private String person;
-    private String longitude;
-    private String latitude;
-	
-    public Net() {
-    	
+    private Double longitude;
+    private Double latitude;
+  
+    public Net() {	
     }
     
-    public Net(String size, String state, String person, String longitude, String latitude) {
+    public Net(String size, String state, String person, Double longitude, Double latitude) {
     	this.size = size;
     	this.state = state;
     	this.person = person;
@@ -54,16 +50,16 @@ public class Net implements Serializable
 	public void setPerson(String person) {
 		this.person = person;
 	}
-	public String getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public String getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 }

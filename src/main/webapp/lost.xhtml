@@ -9,6 +9,44 @@
 </h:head>
 <h:body>
 	<h1>Lost</h1>
+	<h:form>
+		<p:dataTable var="net" value="#{action.activeNets}">
+		    <p:column headerText="Verschollen?">
+				<p:commandButton value="als verschollen melden" icon="pi pi-check" action="#{action.saveLost(net)}" update="@form" />
+			</p:column>
+			
+			 <p:column headerText="Status">
+				<h:outputText value="#{net.state}" />
+			</p:column>
+			
+			<p:column headerText="Größe">
+				<h:outputText value="#{net.size}" />
+			</p:column>
+			
+			<p:column headerText="Berger:in">
+				<h:outputText value="#{net.person}" /> 
+			</p:column>
+		
+			<p:column headerText="Längengrad">
+				<h:outputText value="#{net.longitude}"> 
+					<f:convertNumber pattern="#0.######" />
+				</h:outputText>
+			</p:column>
+			
+			<p:column headerText="Breitengrad">
+				<h:outputText value="#{net.latitude}">
+					<f:convertNumber pattern="#0.######" />
+				</h:outputText>
+			</p:column>
+			
+		</p:dataTable>
+	
+		<p:messages id="messages">
+			<p:autoUpdate /> 
+		</p:messages>
+	
+		<p:commandButton value="zurück" icon="pi pi-check" action="#{navigation.menu()}" />
+	</h:form>
 	
 </h:body>
 </html>

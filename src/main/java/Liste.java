@@ -12,11 +12,7 @@ public class Liste implements Serializable
 {
     private List<Net> netze = new ArrayList<Net>();
 
-    public Liste() throws ParseException
-    {    
-        netze.add(new Net("XL", "gemeldet", "Peter", "Längengrad1", "Breitengrad1"));
-        netze.add(new Net("S", "Bergung bevorstehend", "Jens", "Längengrad2", "Breitengrad2"));
-        netze.add(new Net("XS", "verschollen", "", "Längengrad3", "Breitengrad3"));
+    public Liste() throws ParseException{    
     }
 
     public List<Net> getListe()

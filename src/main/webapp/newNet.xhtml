@@ -4,11 +4,42 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-  <title>Hello</title>
+  <title>Erfassung eines neuen Geisternetzes</title>
 
 </h:head>
 <h:body>
-	<h1>newNet</h1>
+	<h:form>
+    <p:panel header="Neues Geisternetz erfassen">
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Größe:" />
+                <p:selectOneMenu value="#{action.net.size}" required="true">
+        			<f:selectItem itemValue="#{action.sizes}" />
+        			<f:selectItems value="#{action.sizes}" />
+    			</p:selectOneMenu>
+
+            <p:outputLabel value="Status:" />            
+            	<p:selectOneMenu value="#{action.net.state}" required="true" disabled="true">
+        			<f:selectItem itemValue="#{action.states}"/>
+        			<f:selectItems value="#{action.states}" />
+    			</p:selectOneMenu>
+
+            <p:outputLabel value="Berger:in:" />
+            	<p:inputText value="#{action.net.person}" />
+
+            <p:outputLabel value="Längengrad:" />
+            	<p:inputText value="#{action.net.longitude}" maxlength="10" />
+
+            <p:outputLabel value="Breitengrad:" />
+            	<p:inputText value="#{action.net.latitude}" maxlength="10" />
+        </p:panelGrid>
+
+        <p:commandButton value="Speichern" action="#{action.saveNets}" icon="pi pi-check" />
+    </p:panel>
+
+    <p:messages id="messages">
+        <p:autoUpdate />
+    </p:messages>
+</h:form>
 	
 </h:body>
 </html>

@@ -1,20 +1,17 @@
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import jakarta.inject.Named;
 
 @Named("navigation")
-@SessionScoped
+@ApplicationScoped
 public class NavigationController implements Serializable
 {	
 	public NavigationController(){ 
     }
 
-    public String weiter(){
-        return "meldung";
-    }
-    
-    public String zurueck(){
-        return "index";
+    public String menu(){
+        return "menu";
     }
     public String editPerson() {
     	return "editPerson";
@@ -27,8 +24,8 @@ public class NavigationController implements Serializable
     	return "lost";
     }
     
-    public String loginAnonym() {
-    	return "/login/loginAnonym";
+    public String login() {
+    	return "login";
     }
     
     public String loginMelder() {
