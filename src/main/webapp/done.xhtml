@@ -4,14 +4,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Geisternetze als verschollen melden</title>
-	<h:outputStylesheet library="css" name="style.css" />
+  	<title>Bergung eintragen</title>
+  	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
+	<h1>Done</h1>
 	<h:form>
-		<p:dataTable var="net" value="#{action.activeNets}">
-		    <p:column headerText="Verschollen?">
-				<p:commandButton value="verschollen" icon="pi pi-eye-slash" action="#{action.saveLost(net)}" update="@form" />
+		<p:dataTable var="net" value="#{action.doneNets}">
+	    
+		    <p:column headerText="Sie haben das Geisternetz geborgen?">
+				<p:commandButton value="geborgen" icon="pi pi-trophy" action="#{action.saveDone(net)}" update="@form" />
 			</p:column>
 			
 			 <p:column headerText="Status">
@@ -44,8 +46,7 @@
 			<p:autoUpdate /> 
 		</p:messages>
 	
-		<p:spacer height="50em" />
-		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.menu()}" />
+		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.fullMenu()}" />
 	</h:form>
 	
 </h:body>

@@ -45,7 +45,21 @@ public class NetDAO{
 	
 	public List<Net> getActiveNets(){
     	EntityManager em = emf.createEntityManager();
-    	Query q = em.createQuery("select n from Net n where n.state <> 'verschollen' order by n.state asc");
+    	Query q = em.createQuery("select n from Net n where n.state in ('gemeldet','Bergung bevorstehend') order by n.state asc");
+    	List<Net> netze = q.getResultList();
+    	return netze;
+    }
+	
+	public List<Net> getTodoNets(){
+    	EntityManager em = emf.createEntityManager();
+    	Query q = em.createQuery("select n from Net n where n.state = 'gemeldet' order by n.state asc");
+    	List<Net> netze = q.getResultList();
+    	return netze;
+    }
+	
+	public List<Net> getDoneNets(){
+    	EntityManager em = emf.createEntityManager();
+    	Query q = em.createQuery("select n from Net n where n.state in ('gemeldet', 'Bergung bevorstehend') order by n.state asc");
     	List<Net> netze = q.getResultList();
     	return netze;
     }
@@ -60,6 +74,17 @@ public class NetDAO{
 		return "menu";
 	}
 	
+	public String saveTodo(Net lostNet) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+			lostNet.setState("Bergung bevorstehend");
+			em.merge(lostNet);
+		t.commit();
+		
+		return "lost";
+	}
+	
 	public String saveLost(Net lostNet) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
@@ -69,6 +94,17 @@ public class NetDAO{
 		t.commit();
 		
 		return "lost";
+	}
+	
+	public String saveDone(Net lostNet) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		t.begin();
+			lostNet.setState("geborgen");
+			em.merge(lostNet);
+		t.commit();
+		
+		return "todo";
 	}
 
 	public Net getNet() {

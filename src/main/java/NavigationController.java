@@ -1,5 +1,4 @@
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import jakarta.inject.Named;
 
@@ -13,8 +12,9 @@ public class NavigationController implements Serializable
     public String menu(){
         return "menu";
     }
-    public String editPerson() {
-    	return "editPerson";
+    
+    public String fullMenu(){
+        return "fullMenu";
     }
     
     public String newNet() {
@@ -22,6 +22,13 @@ public class NavigationController implements Serializable
     }
     public String lost() {
     	return "lost";
+    }
+    
+    public String todo() {
+    	return "todo";
+    }
+    public String done() {
+    	return "done";
     }
     
     public String login() {

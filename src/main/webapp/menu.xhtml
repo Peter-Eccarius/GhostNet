@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
   <title>Menü Melder:in</title>
-
+  <h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
 	<h:form>
@@ -13,13 +13,13 @@
 			<f:facet name="title">Sie haben sich als meldende Person eingeloggt und Ihnen stehen folgende Funktionen zur Verfügung:</f:facet>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="neues Geisternetz erfassen" />
-				<p:commandButton value="Netz erfassen" action="#{navigation.newNet}" ajax="false"/>
+				<p:commandButton value="Netz erfassen" icon="pi pi-plus-circle" action="#{navigation.newNet}" ajax="false"/>
 				
 				<p:outputLabel value="Geisternetz als verschollen melden" />
-				<p:commandButton value="als 'verschollen' melden" action="#{navigation.lost}" ajax="false"/>
+				<p:commandButton value="verschollen" icon="pi pi-eye-slash" action="#{navigation.lost}" ajax="false"/>
 				
 				<p:outputLabel value="zurück zum Login" />
-				<p:commandButton value="zum Login" action="#{navigation.loginMelder}" ajax="false"/>
+				<p:commandButton value="zum Login" icon="pi pi-check" action="#{navigation.loginMelder}" ajax="false"/>
 			</p:panelGrid>
 			
 			<p:messages id="messages">
