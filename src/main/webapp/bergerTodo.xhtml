@@ -11,7 +11,7 @@
 	<h:form>
 		<p:dataTable var="net" value="#{action.todoNets}">
 		    <p:column headerText="Sie möchten dieses Geisternetz bergen?">
-				<p:commandButton value="als Berger:in eintragen" icon="pi pi-thumbtack" action="#{action.saveTodo(net)}" update="@form" />
+				<p:commandButton value="als Berger:in eintragen" icon="pi pi-pencil" action="#{action.saveTodo(net)}" update="@form" />
 			</p:column>
 			
 			 <p:column headerText="Status">
@@ -22,10 +22,6 @@
 				<h:outputText value="#{net.size}" />
 			</p:column>
 			
-			<p:column headerText="Berger:in">
-				<h:outputText value="#{net.person}" /> 
-			</p:column>
-		
 			<p:column headerText="Längengrad">
 				<h:outputText value="#{net.longitude}"> 
 					<f:convertNumber locale="en" pattern="#0.######" />
@@ -44,7 +40,7 @@
 			<p:autoUpdate /> 
 		</p:messages>
 	
-		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.fullMenu()}" />
+		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.bergerMenu()}" style="margin:1em;"/>
 	</h:form>
 	
 </h:body>

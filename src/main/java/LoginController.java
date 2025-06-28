@@ -9,20 +9,20 @@ public class LoginController implements Serializable {
 	String name;
 	String telnr;
 
-	public String loginMelder() {
+	public String melderLogin() {
 		User user = new User(name, telnr);
 		if (user.fullLogin())
-			return "menu";
+			return "melderMenu";
 		else if (user.anonymLogin())
-			return "newNet";
-		else
-			return "fehler";		
+			return "anonymNewNet";
+		else 
+			return "index";
 	}
 	
-	public String loginBerger() {
+	public String bergerLogin() {
 		User user = new User(name, telnr);
 		if (user.fullLogin())
-			return "fullMenu";
+			return "bergerMenu";
 		else 
 			return "fehler";		
 	}

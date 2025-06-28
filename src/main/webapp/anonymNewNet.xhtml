@@ -29,19 +29,17 @@
             <p:outputLabel value="Längengrad:" />
             	<p:inputText value="#{action.net.longitude}" maxlength="11" required="true" label="Längengrad">
             		<f:validateDoubleRange minimum="-180.0" maximum="180.0" />
-            		<f:validateRegex pattern="-?\d{1,3}(\.\d{1,6})?" />
             	</p:inputText>
 
             <p:outputLabel value="Breitengrad:" />
             	<p:inputText value="#{action.net.latitude}" maxlength="10" required="true" label="Breitengrad">
             		<f:validateDoubleRange minimum="-90.0" maximum="90.0" />
-            		<f:validateRegex pattern="-?\d{1,2}(\.\d{1,6})?" />
             	</p:inputText>
         </p:panelGrid>
 
-        <p:commandButton value="Speichern" action="#{action.saveNets}" icon="pi pi-check" />
+        <p:commandButton value="Speichern" action="#{action.saveNets}" icon="pi pi-check" style="margin:1em;"/>
         <p:spacer width="20em" />
-        <p:commandButton value="zurück zum Login" icon="pi pi-arrow-left" action="#{navigation.loginMelder()}" />
+        <p:commandButton value="zurück zum Login" icon="pi pi-arrow-left" action="#{navigation.melderLogin()}" immediate="true" style="margin:1em;" />
     </p:panel>
 
     <p:messages id="messages">

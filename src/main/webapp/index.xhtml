@@ -14,10 +14,10 @@
 	<p:outputLabel value="Wählen Sie hier aus, mit welcher Rolle Sie sich anmelden möchten:" />
 	
 	<h:form>
-		<p:spacer height="50em" />
-		<p:commandButton value="Melder:in" icon="pi pi-check" action="#{navigation.loginMelder()}" ajax="false" />
+		<p:spacer  height="50em" />
+		<p:commandButton value="Melder:in" icon="pi pi-chevron-circle-right" action="#{navigation.melderLogin()}" ajax="false" style="margin:1em;"/>
 		<p:spacer width="20em" />
-		<p:commandButton value="Berger:in" icon="pi pi-check" action="#{navigation.loginBerger()}" ajax="false" />
+		<p:commandButton value="Berger:in" icon="pi pi-chevron-circle-right" action="#{navigation.bergerLogin()}" ajax="false" style="margin:1em;"/>
 		
 			
 		<p:messages id="messages">

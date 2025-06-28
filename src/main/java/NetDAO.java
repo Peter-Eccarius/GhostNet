@@ -7,12 +7,15 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 
 @Named("action")
 @ApplicationScoped
 public class NetDAO{
-	
+
 	private Net net = createDefaultNet();
+	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GhostNetPersistenceUnit");
 	
 	 //Grössen-Liste erstellen
     private List<String> sizes = Arrays.asList("XS","S","M","L","XL");
@@ -34,8 +37,6 @@ public class NetDAO{
     	return defaultNet;
     }
 	
-	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GhostNetPersistenceUnit");
-
 	public List<Net> getNets(){
 	    	EntityManager em = emf.createEntityManager();
 	    	Query q = em.createQuery("select n from Net n");
@@ -110,12 +111,11 @@ public class NetDAO{
 	public Net getNet() {
 		return net;
 	}
-
-	public void setNet(Net net) {
-		this.net = net;
-	}
-
 	public static EntityManagerFactory getEmf() {
 		return emf;
+	}
+	
+	public void setNet(Net net) {
+		this.net = net;
 	}
 }
