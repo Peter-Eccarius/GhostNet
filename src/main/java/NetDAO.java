@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -13,6 +14,9 @@ import jakarta.faces.context.FacesContext;
 @Named("action")
 @ApplicationScoped
 public class NetDAO{
+	
+	@Inject
+	private LoginController login;
 
 	private Net net = createDefaultNet();
 	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GhostNetPersistenceUnit");
@@ -65,14 +69,12 @@ public class NetDAO{
     	return netze;
     }
 	
-	public String saveNets() {
+	public void saveNets() {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 			em.merge(net);
 		t.commit();
-		
-		return "menu";
 	}
 	
 	public String saveTodo(Net lostNet) {
@@ -80,10 +82,11 @@ public class NetDAO{
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 			lostNet.setState("Bergung bevorstehend");
+			lostNet.setPerson(login.getName());;
 			em.merge(lostNet);
 		t.commit();
 		
-		return "lost";
+		return "todo";
 	}
 	
 	public String saveLost(Net lostNet) {

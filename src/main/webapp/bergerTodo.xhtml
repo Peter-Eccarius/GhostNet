@@ -7,41 +7,35 @@
   	<title>bevorstehende Bergung eintragen</title>
 	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
+
 <h:body>
 	<h:form>
 		<p:dataTable var="net" value="#{action.todoNets}">
 		    <p:column headerText="Sie möchten dieses Geisternetz bergen?">
 				<p:commandButton value="als Berger:in eintragen" icon="pi pi-pencil" action="#{action.saveTodo(net)}" update="@form" />
 			</p:column>
-			
 			 <p:column headerText="Status">
 				<h:outputText value="#{net.state}" />
 			</p:column>
-			
 			<p:column headerText="Größe">
 				<h:outputText value="#{net.size}" />
 			</p:column>
-			
 			<p:column headerText="Längengrad">
 				<h:outputText value="#{net.longitude}"> 
 					<f:convertNumber locale="en" pattern="#0.######" />
 				</h:outputText>
 			</p:column>
-			
 			<p:column headerText="Breitengrad">
 				<h:outputText value="#{net.latitude}">
 					<f:convertNumber locale="en" pattern="#0.######" />
 				</h:outputText>
 			</p:column>
-			
 		</p:dataTable>
-	
+		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.bergerMenu()}" style="margin:1em;"/>
+		
 		<p:messages id="messages">
 			<p:autoUpdate /> 
-		</p:messages>
-	
-		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.bergerMenu()}" style="margin:1em;"/>
+		</p:messages>		
 	</h:form>
-	
 </h:body>
 </html>

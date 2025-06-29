@@ -7,47 +7,39 @@
   	<title>Bergung eintragen</title>
   	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
+
 <h:body>
-	<h1>Done</h1>
 	<h:form>
 		<p:dataTable var="net" value="#{action.doneNets}">
-	    
 		    <p:column headerText="Sie haben das Geisternetz geborgen?">
-				<p:commandButton value="geborgen" icon="pi pi-trophy" action="#{action.saveDone(net)}" update="@form" />
+				<p:commandButton value="geborgen" icon="pi pi-star-fill" action="#{action.saveDone(net)}" update="@form" />
 			</p:column>
-			
 			 <p:column headerText="Status">
 				<h:outputText value="#{net.state}" />
 			</p:column>
-			
 			<p:column headerText="Größe">
 				<h:outputText value="#{net.size}" />
 			</p:column>
-			
 			<p:column headerText="Berger:in">
 				<h:outputText value="#{net.person}" /> 
 			</p:column>
-		
 			<p:column headerText="Längengrad">
 				<h:outputText value="#{net.longitude}"> 
 					<f:convertNumber locale="en" pattern="#0.######" />
 				</h:outputText>
 			</p:column>
-			
 			<p:column headerText="Breitengrad">
 				<h:outputText value="#{net.latitude}">
 					<f:convertNumber locale="en" pattern="#0.######" />
 				</h:outputText>
 			</p:column>
-			
 		</p:dataTable>
+		
+		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.bergerMenu()}" style="margin:1em;"/>
 	
 		<p:messages id="messages">
 			<p:autoUpdate /> 
 		</p:messages>
-	
-		<p:commandButton value="zurück zum Menü" icon="pi pi-arrow-left" action="#{navigation.bergerMenu()}" style="margin:1em;"/>
 	</h:form>
-	
 </h:body>
 </html>

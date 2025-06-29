@@ -9,7 +9,7 @@ public class Net implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	private String size;
+	private String size = "M";
     private String state;
     private String person;
     private Double longitude;

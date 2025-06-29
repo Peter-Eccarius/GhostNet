@@ -7,18 +7,18 @@
   <title>Menü Melder:in</title>
   <h:outputStylesheet library="css" name="style.css" />
 </h:head>
+
 <h:body>
 	<h:form>
 		<p:card style="width: 80em">
 			<f:facet name="title">Sie haben sich als meldende Person eingeloggt und Ihnen stehen folgende Funktionen zur Verfügung:</f:facet>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="neues Geisternetz erfassen" />
-				<p:commandButton value="Netz erfassen" icon="pi pi-plus-circle" action="#{navigation.melderNewNet}" ajax="false" style="margin:1em;"/>
-				
+				<p:commandButton value="Netz erfassen" icon="pi pi-plus-circle" action="#{navigation.melderNewNet}" ajax="false" style="margin:1em;"/>	
 				<p:outputLabel value="Geisternetz als verschollen melden" />
 				<p:commandButton value="verschollen" icon="pi pi-eye-slash" action="#{navigation.melderLost}" ajax="false" style="margin:1em;"/>
 			</p:panelGrid>
-			<p:commandButton value="zurück zum Login" icon="pi pi-check" action="#{navigation.loginMelder}" ajax="false" style="margin:1em;"/>
+			<p:commandButton value="zurück zum Login" icon="pi pi-check" action="#{navigation.melderLogin}" ajax="false" style="margin:1em;"/>
 			<p:commandButton value="zurück zur Startseite" icon="pi pi-home" action="#{navigation.start}" ajax="false" style="margin:1em;"/>
 			
 			<p:messages id="messages">

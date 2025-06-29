@@ -1,9 +1,11 @@
 import java.io.Serializable;
+
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
 @Named("login")
-@ViewScoped
+@SessionScoped
 public class LoginController implements Serializable {
 
 	String name;

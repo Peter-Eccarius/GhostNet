@@ -7,22 +7,21 @@
   	<title>Login Melder:in</title>
 	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
-<h:body>
 
+<h:body>
 	<h:form>
 		<p:card style="width: 30em">
 			<f:facet name="title">Login als meldende Person<br/></f:facet>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Benutzername: " for="name" />
-				<p:inputText id="name" value="#{login.name}" size="25" required="true">
-				</p:inputText>
+				<p:inputText id="name" value="#{login.name}" size="25" required="true" />
 				<p:outputLabel value="Telefonnummer: " for="telnr" required="false"/>
-				<p:inputText id="telnr" value="#{login.telnr}" size="25" required="false">
+				<p:inputText id="telnr" value="#{login.telnr}" required="false">
+					<f:validator validatorId="telValidator" />
 				</p:inputText>
 			</p:panelGrid>
 			<f:facet name="footer">
 				<p:commandButton value="login" icon="pi pi-check" action="#{login.melderLogin}" ajax="false" style="margin:1em;"/>
-				
 				<p:messages id="messages">
 					<p:autoUpdate/>
 				</p:messages>

@@ -14,10 +14,10 @@
 			<f:facet name="title">Login als bergende Person<br/></f:facet>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Benutzername: " for="name" />
-				<p:inputText id="name" value="#{login.name}" size="25" required="true">
-				</p:inputText>
+				<p:inputText id="name" value="#{login.name}" size="25" required="true" />
 				<p:outputLabel value="Telefonnummer: " for="telnr" required="true"/>
-				<p:inputText id="telnr" value="#{login.telnr}" size="25" required="true">
+				<p:inputText id="telnr" value="#{login.telnr}" required="true">
+					<f:validator validatorId="telValidator" />
 				</p:inputText>
 			</p:panelGrid>
 			<f:facet name="footer">
@@ -26,7 +26,6 @@
 				<p:messages id="messages">
 					<p:autoUpdate/>
 				</p:messages>
-				
 			</f:facet>
 		</p:card>
 	</h:form>
