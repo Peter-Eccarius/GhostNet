@@ -15,7 +15,7 @@ public class LonValidator implements Validator<Double> {
     @Override
     public void validate(FacesContext context, UIComponent component, Double value) throws ValidatorException {
         if (value == null) {
-            return; // leer ist erlaubt, ggf. mit required separat behandeln
+            return;
         }
 
         ResourceBundle bundle = ResourceBundle.getBundle("nachrichten", context.getViewRoot().getLocale());

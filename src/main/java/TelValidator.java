@@ -15,7 +15,7 @@ public class TelValidator implements Validator<String> {
     @Override
     public void validate(FacesContext context, UIComponent component, String value) throws ValidatorException {
         if (value == null || value.trim().isEmpty()) {
-            return; // leer ist erlaubt
+            return;
         }
 
         if (!value.matches(REGEX)) {

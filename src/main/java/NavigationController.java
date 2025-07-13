@@ -8,7 +8,6 @@ public class NavigationController implements Serializable
 {	
 	public NavigationController(){ 
     }
-    
     public String bergerMenu(){
         return "bergerMenu";
     }
@@ -24,7 +23,6 @@ public class NavigationController implements Serializable
     public String bergerLogin() {
     	return "bergerLogin";
     }
-    
     public String melderLost() {
     	return "melderLost";
     }
@@ -36,10 +34,6 @@ public class NavigationController implements Serializable
     }    
     public String melderNewNet() {
     	return "melderNewNet";
-    }
-
-    public String login() {
-    	return "login";
     }
     public String start() {
     	return "index";

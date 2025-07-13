@@ -26,7 +26,7 @@ public class LoginController implements Serializable {
 		if (user.fullLogin())
 			return "bergerMenu";
 		else 
-			return "fehler";		
+			return "index";		
 	}
 
 	public String getName() {
